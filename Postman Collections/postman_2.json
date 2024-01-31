@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "f4b538c8-bdd2-4730-80f1-f107b55b9a68",
+		"name": "PokeAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Fetch Pokemon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e26ea4d8-1f8c-4f49-abb0-d0ae7f66416e",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains pokename\", function () {\r",
+							"    var responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('name', 'pikachu')\r",
+							"} )"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "7b1cbadb-3a86-4cd7-86dd-3baceda7d743",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{pokeUrl}}pokemon/pikachu/"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch berry",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e801d039-ac00-47e0-9d55-d423e4429f82",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains berry\", function () {\r",
+							"    var responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('name', 'cheri')\r",
+							"} )"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "d94177a2-c6fe-418c-b80c-10169136df94",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{pokeUrl}}berry/cheri/"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "01d65d62-81e6-4670-bc1a-5f36c2afd997",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "23b4949e-9010-459d-b41c-ab9e5d33fa7c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "pokeUrl",
+			"value": "https://pokeapi.co/api/v2/",
+			"type": "string"
+		}
+	]
+}
